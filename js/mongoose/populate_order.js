@@ -103,12 +103,25 @@ flow.series( function ( next ){
     findOne().
     populate( 'posts' ).
     run( function ( err, user ){
-      console.log( '\nUser\' posts in new order: ')
+      console.log( '\nUser\' posts in new order (use populate): ')
       user.posts.forEach( function ( post ){
         console.log( '_id : ', post._id, ', content : ', post.content );
       });
       next()
     });
+});
+
+// user's posts in new order
+flow.series( function ( next ){
+  User.findOne( function ( err, user ){
+    Post.find({ _id : { $in : user.posts }}, function ( err, posts ){
+      console.log( '\nUser\' posts in new order (use find $in) -> FAIL!: ')
+      posts.forEach( function ( post ){
+        console.log( '_id : ', post._id, ', content : ', post.content );
+      });
+      next()
+    });
+  });
 });
 
 // end of flow, disconnect mongoose
