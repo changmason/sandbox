@@ -60,23 +60,23 @@ var User = mongoose.model( 'User', UserSchema );
 
 console.log( "= new User() =" );
 user = new User({ name : 'mason' });
-console.log( "= end of new =\n\n\n");
+console.log( "= end of new =\n\n");
 
 console.log( "= user.save() =");
 user.save( function ( err, user ){
-  console.log( '= end of save() =\n\n\n' );
+  console.log( '= end of save() =\n\n' );
 
   console.log( "= User.findOne() =");
   User.findOne( function ( err, user ){
-    console.log( '= end of findOne() =\n\n\n' );
+    console.log( '= end of findOne() =\n\n' );
 
     console.log( '= set user.name =' );
     user.name = "chang";
-    console.log( '= end of set =\n\n\n' );
+    console.log( '= end of set =\n\n' );
 
     console.log( '= user.save() again =' );
     user.save( function ( err, user ){
-      console.log( '= end of save() again =\n\n\n' );
+      console.log( '= end of save() again =\n\n' );
 
       console.log( '= user.remove() =' );
       user.remove( function ( err, user ){
