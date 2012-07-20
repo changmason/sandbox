@@ -1,5 +1,8 @@
-var webdriver = require( 'webdriverjs' );
+// example code for webdriverjs, notice that remember start
+// selenium server before running this example.
+
 var assert    = require( 'assert' );
+var webdriver = require( 'webdriverjs' );
 var client    = webdriver.remote({
                   logLevel : 'silent',
                   desiredCapabilities : {
