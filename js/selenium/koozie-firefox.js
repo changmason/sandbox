@@ -18,10 +18,10 @@ koozie.createServer({
     session().
     open( '/' ).
     type( 'q', 'Hello World' ).
-    click('btnG').
+    click( 'btnK' ).
     waitForElementPresent( 'foot' ).
     getTitle( function ( title ){
-      assert.ok( ~title.indexOf( 'Hello World' ))
+      assert.ok( ~title.indexOf( 'Hello World' ));
     }).
     end( function ( err ){
       browser.testComplete( function (){
