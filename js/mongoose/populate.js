@@ -45,7 +45,7 @@ new User({
         // Note that only finder methods can support populate()
         User.find()
         .populate( 'posts' )
-        .run( function( err, users ){
+        .exec( function( err, users ){
           console.log( '\n# After updating the post' );
           console.log( '- user : ' + users );
           mongoose.disconnect();

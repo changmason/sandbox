@@ -7,7 +7,7 @@ var ObjectId = Schema.ObjectId;
 var Flow     = require( 'node.flow' );
 var flow     = new Flow();
 
-mongoose.connect("mongodb://localhost/populate_order_db");
+mongoose.connect( "mongodb://localhost/populate_order_db" );
 
 var UserSchema = new Schema({
   name  : { type : String, required: true },
@@ -64,7 +64,7 @@ flow.series( function ( next ){
   User.
     findOne().
     populate( 'posts' ).
-    run( function ( err, user ){
+    exec( function ( err, user ){
       console.log( '\nUser\' posts in original order: ')
       user.posts.forEach( function ( post ){
         console.log( '_id : ', post._id, ', content : ', post.content );
@@ -78,7 +78,7 @@ flow.series( function ( next ){
   User.
     findOne().
     populate( 'posts' ).
-    run( function ( err, user ){
+    exec( function ( err, user ){
       var posts = user.posts;
 
       posts.sort( function ( e1, e2 ){
@@ -102,7 +102,7 @@ flow.series( function ( next ){
   User.
     findOne().
     populate( 'posts' ).
-    run( function ( err, user ){
+    exec( function ( err, user ){
       console.log( '\nUser\' posts in new order (use populate): ')
       user.posts.forEach( function ( post ){
         console.log( '_id : ', post._id, ', content : ', post.content );

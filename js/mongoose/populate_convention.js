@@ -51,16 +51,16 @@ var fill = function ( callback ){
 
 // Display all data for checking
 var check = function ( callback ){
-  User.findOne().run( function ( err, user ){
+  User.findOne().exec( function ( err, user ){
     console.log( '# Before populate()' );
     console.log( '- user : \n', user );
-    Post.findOne().run( function ( err, post ){
+    Post.findOne().exec( function ( err, post ){
       console.log( '- post : \n', post, '\n' );
 
-      User.findOne().populate( 'post_ids' ).run( function ( err, user ){
+      User.findOne().populate( 'post_ids' ).exec( function ( err, user ){
         console.log( '# After populate()' );
         console.log( '- user : \n', user );
-        Post.findOne().populate( 'user_id' ).run( function ( err, post){
+        Post.findOne().populate( 'user_id' ).exec( function ( err, post){
           console.log( '- post : \n', post, '\n' );
           mongoose.disconnect();
         });

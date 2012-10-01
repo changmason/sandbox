@@ -12,7 +12,7 @@ var UserSchema = new Schema({
 });
 
 UserSchema.pre( 'init', function ( next ){
-  console.log('HOOK: pre-init');
+  console.log( 'HOOK: pre-init' );
   next();
 });
 
@@ -21,7 +21,7 @@ UserSchema.post( 'init', function (){
 });
 
 UserSchema.pre( 'save', function ( next ){
-  console.log('HOOK: pre-save');
+  console.log( 'HOOK: pre-save' );
   next();
 });
 
@@ -48,7 +48,7 @@ UserSchema.post( 'set', function ( path, val ){
 });
 
 UserSchema.pre( 'remove', function ( next ){
-  console.log('HOOK: pre-remove');
+  console.log( 'HOOK: pre-remove' );
   next();
 });
 

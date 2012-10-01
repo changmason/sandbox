@@ -65,7 +65,7 @@ flow.series( function ( next ){
   User.
     findOne().
     populate( 'posts' ).
-    run( function ( err, user ){
+    exec( function ( err, user ){
       console.timeEnd( '(1) user#populate to get posts' );
       console.log(     '    post count: ', user.posts.length );
       next()

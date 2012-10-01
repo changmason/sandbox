@@ -14,7 +14,7 @@ var NumSchema = new Schema({
 
 NumSchema.statics = {
   reversed : function( callback ){
-    this.find().sort( "contains", "descending" ).run( callback );
+    this.find().sort( "-contains" ).exec( callback );
   }
 };
 
